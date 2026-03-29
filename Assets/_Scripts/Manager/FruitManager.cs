@@ -29,6 +29,7 @@ public class FruitManager : MonoBehaviour
 
     [Header(" Actions ")]
     public static Action onNextFruitIndexSet;
+    public static Action<Fruit> onFruitSpawned;
 
     private void Awake()
     {
@@ -152,6 +153,7 @@ public class FruitManager : MonoBehaviour
             fruitParent);
 
         SetNextFruitIndex();
+        onFruitSpawned?.Invoke(currentFruit);
     }
     //==========================================
     //SPAWN LINE 
@@ -206,6 +208,7 @@ public class FruitManager : MonoBehaviour
     {
         Fruit mergedFruit = Instantiate(spawnFruit, spawnPosition, Quaternion.identity, fruitParent);
         mergedFruit.EnablePhysics();
+        onFruitSpawned?.Invoke(mergedFruit);
     }
     //===========================================
     //NEXT FRUIT GET/SET

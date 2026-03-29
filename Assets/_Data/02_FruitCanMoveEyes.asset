@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373dc49bf4269ff42b19d0d95c986b0b, type: 3}
+  m_Name: 02_FruitCanMoveEyes
+  m_EditorClassIdentifier: 
+  name: Fruit eyes moving
+  price: 100
+  objectPrefabs:
+  - {fileID: 362144958771182552, guid: c180f8635f52ca141a850480bca2875a, type: 3}
+  - {fileID: 55054359319017592, guid: 3cfb1353c626b154c8031fb4dbfef35b, type: 3}
+  - {fileID: 7121541812403790964, guid: e46ddab5da2edbc4895932624062b0eb, type: 3}
+  - {fileID: 6704617936452569119, guid: 048c51f0e8f00b24e9f397ff0852185f, type: 3}
+  - {fileID: 1721780557948940368, guid: e504803d6117ff949b7f8072af21ee44, type: 3}
+  - {fileID: 309979356077092815, guid: 6a801252663dbfd4289d4f1062c29335, type: 3}
+  - {fileID: 2543075415928833217, guid: 3f95556bd83fa4140abebabc47897b29, type: 3}
+  - {fileID: 5832008002926675280, guid: 0c08fa28c26123e44b2e156b6cd6fdc8, type: 3}
+  - {fileID: 1464848381453599736, guid: 403d452152413614b86266cfd0fef427, type: 3}
+  spawnablePrefabs:
+  - {fileID: 362144958771182552, guid: c180f8635f52ca141a850480bca2875a, type: 3}
+  - {fileID: 55054359319017592, guid: 3cfb1353c626b154c8031fb4dbfef35b, type: 3}
+  - {fileID: 7121541812403790964, guid: e46ddab5da2edbc4895932624062b0eb, type: 3}
+  - {fileID: 6704617936452569119, guid: 048c51f0e8f00b24e9f397ff0852185f, type: 3}

@@ -11,6 +11,8 @@ public class CoinManager : MonoBehaviour
     private int coins;
     private const string coinKey = "Coins";
 
+    [Header(" Actions ")]
+    public static Action onCoinsChanged;
     private void Awake()
     {
         if (Instance == null)
@@ -21,14 +23,11 @@ public class CoinManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
         LoadData();
         UpdateCoinText();
         MergeManager.onMergeProcessed += MergeProgressedCallback;
     }
+
 
     private void OnDestroy()
     {
@@ -80,6 +79,8 @@ public class CoinManager : MonoBehaviour
         {
             coinTexts[i].UpdateCoinText(coins.ToString());
         }
+
+        onCoinsChanged?.Invoke();
     }
 
     private void SaveData()
