@@ -34,7 +34,6 @@ public class PowerupManager : MonoBehaviour
         
         if (smallFruits == null || smallFruits.Length == 0)
         {
-            Debug.Log("No small fruits to blast!");
             return;
         }
 
@@ -43,14 +42,7 @@ public class PowerupManager : MonoBehaviour
             smallFruits[i].Merge();
         }
 
-        if (CoinManager.Instance.SpendCoins(blastPrice))
-        {
-            Debug.Log("Blast Powerup Purchased!");
-        }
-         else
-        {
-            Debug.Log("Not enough coins for Blast Powerup!");
-        }
+        CoinManager.Instance.SpendCoins(blastPrice);
     }
 
     private void CoinChangedCallback()

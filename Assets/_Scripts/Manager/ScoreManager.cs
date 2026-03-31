@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     [Header(" Actions ")]
     public static Action<int> onScoreCalculated;
+    public static Action<int> onBestScoreCalculated;
 
     [Header(" Settings ")]
     private int score = 0;
@@ -24,7 +25,8 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null) 
             Instance = this;
         else 
-            Destroy(gameObject);  
+            Destroy(gameObject);
+        LoadData();
     }
 
     private void Start()
@@ -45,7 +47,6 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("ScoreManager: Trigger gameover");
             CalculateBestScore();
-
         }
     }
 
@@ -55,6 +56,7 @@ public class ScoreManager : MonoBehaviour
         {
             bestScore = score;
             SaveData();
+            onBestScoreCalculated?.Invoke(bestScore);
         }
     }
 

@@ -94,7 +94,7 @@ public class ShopManager : MonoBehaviour
         bool canPurchase = CoinManager.Instance.CanPurchase(skinPrice);
         purchaseButton.interactable = canPurchase;
         string text = skinPrice.ToString();
-        Debug.Log("Purchase button text: " + text);
+        
         purchaseButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
 
@@ -144,7 +144,6 @@ public class ShopManager : MonoBehaviour
     private void LoadLastSeletedSkin()
     {
         int lastSeletedSkinIndex = PlayerPrefs.GetInt(lastSelectedSkinKey);
-        Debug.Log("Last selected skin " + lastSeletedSkinIndex);
         SkinButtonClickedCallback(lastSeletedSkinIndex);
     }
 

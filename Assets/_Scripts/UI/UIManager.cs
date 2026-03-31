@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject shopUI;
     [SerializeField] private GameObject levelMapUI;
+    [SerializeField] private GameObject leaderboardUI;
     private void Start()
     {
         GameManager.onGameStateChanged += GameStateChangedCallback;
@@ -49,9 +50,7 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(true);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
-        settingPanel.SetActive(false);
-        levelMapUI.SetActive(false);
-        shopUI.SetActive(false);
+        SetMainGameState();
     }
 
     private void SetInGame()
@@ -59,9 +58,7 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(true);
         gameOverUI.SetActive(false);
-        settingPanel.SetActive(false);
-        levelMapUI.SetActive(false);
-        shopUI.SetActive(false);
+        SetMainGameState();
     }
 
     private void SetGameOver()
@@ -69,10 +66,17 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(true);
+        SetMainGameState();
+    }
+
+    private void SetMainGameState()
+    {
         settingPanel.SetActive(false);
         levelMapUI.SetActive(false);
         shopUI.SetActive(false);
+        leaderboardUI.SetActive(false);
     }
+
     private void LevelButtonClickedCallback()
     {
         GameManager.Instance.SetGameState(GameState.InGame);
@@ -105,5 +109,15 @@ public class UIManager : MonoBehaviour
     public void CloseLevelMapUI()
     {
         levelMapUI.SetActive(false);
+    }
+
+    public void OpenLeaderboardUI()
+    {
+        leaderboardUI.SetActive(true);
+    }
+
+    public void CloseLeaderboardUI()
+    {
+        leaderboardUI.SetActive(false);
     }
 }
