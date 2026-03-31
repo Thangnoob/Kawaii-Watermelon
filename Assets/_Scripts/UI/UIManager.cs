@@ -11,14 +11,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject shopUI;
+    [SerializeField] private GameObject levelMapUI;
     private void Start()
     {
         GameManager.onGameStateChanged += GameStateChangedCallback;
+
+        LevelMapManager.onLevelButtonClicked += LevelButtonClickedCallback;
     }
+
+    
 
     private void OnDestroy()
     {
         GameManager.onGameStateChanged -= GameStateChangedCallback;
+        
+        LevelMapManager.onLevelButtonClicked -= LevelButtonClickedCallback;
     }
 
     private void GameStateChangedCallback(GameState state)
@@ -43,6 +50,8 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
         settingPanel.SetActive(false);
+        levelMapUI.SetActive(false);
+        shopUI.SetActive(false);
     }
 
     private void SetInGame()
@@ -50,6 +59,9 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(true);
         gameOverUI.SetActive(false);
+        settingPanel.SetActive(false);
+        levelMapUI.SetActive(false);
+        shopUI.SetActive(false);
     }
 
     private void SetGameOver()
@@ -57,8 +69,14 @@ public class UIManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(true);
+        settingPanel.SetActive(false);
+        levelMapUI.SetActive(false);
+        shopUI.SetActive(false);
     }
-
+    private void LevelButtonClickedCallback()
+    {
+        GameManager.Instance.SetGameState(GameState.InGame);
+    }
     public void OpenSettingsPanel()
     {
         settingPanel.SetActive(true);
@@ -77,5 +95,15 @@ public class UIManager : MonoBehaviour
     public void CloseShopUI()
     {
         shopUI.SetActive(false);
+    }
+
+    public void OpenLevelMapUI()
+    {
+        levelMapUI.SetActive(true);
+    }
+
+    public void CloseLevelMapUI()
+    {
+        levelMapUI.SetActive(false);
     }
 }

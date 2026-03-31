@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 2100830401778898059, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d75a6c3ab9467e249b2f22eca427bb0d, type: 3}
+      objectReference: {fileID: 21300000, guid: fe59c6ca37484a148ba1480344444eb1, type: 3}
     - target: {fileID: 2509856056775535482, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_Name
       value: 05_Orange
